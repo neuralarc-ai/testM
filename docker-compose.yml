@@ -1,0 +1,120 @@
+version: '3.8'
+
+services:
+  # Backend Flask API
+  backend:
+    build:
+      context: ./manus-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=True
+    env_file:
+      - ./manus-backend/.env
+    volumes:
+      - ./manus-backend:/app
+      - /app/venv
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - manus-network
+
+  # Frontend React App
+  frontend:
+    build:
+      context: ./manus-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./manus-frontend/.env
+    volumes:
+      - ./manus-frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - manus-network
+
+  # Redis for caching and task queues
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - manus-network
+
+  # PostgreSQL database
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: manus_ai
+      POSTGRES_USER: manus_user
+      POSTGRES_PASSWORD: manus_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - manus-network
+
+  # Celery worker for background tasks
+  celery-worker:
+    build:
+      context: ./manus-backend
+      dockerfile: Dockerfile
+    command: celery -A src.celery_app worker --loglevel=info
+    env_file:
+      - ./manus-backend/.env
+    volumes:
+      - ./manus-backend:/app
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - manus-network
+
+  # Celery beat for scheduled tasks
+  celery-beat:
+    build:
+      context: ./manus-backend
+      dockerfile: Dockerfile
+    command: celery -A src.celery_app beat --loglevel=info
+    env_file:
+      - ./manus-backend/.env
+    volumes:
+      - ./manus-backend:/app
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - manus-network
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - manus-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  manus-network:
+    driver: bridge
+
