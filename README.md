@@ -1,214 +1,363 @@
-# Manus AI Clone - Autonomous AI Agent Platform
+# 🤖 Manus AI Clone - Complete Implementation
 
-A fully functional clone of Manus AI, the world's first autonomous AI agent that bridges mind and action. This platform replicates all core capabilities including multi-agent architecture, autonomous task execution, real-time processing, and cross-platform availability.
+A fully functional clone of Manus AI with autonomous AI agents, multi-modal content generation, web automation, and real-time task orchestration.
 
-## 🚀 Features
+## 🌟 Features
 
-### Core Capabilities
-- **Autonomous Task Execution**: Multi-step tasks without continuous human input
-- **Multi-Agent Architecture**: Central executor coordinating specialized sub-agents
-- **Multi-Modal Processing**: Text, image, video, and audio content generation
-- **Real-Time Processing**: Background task execution with progress notifications
-- **Cross-Platform**: Web application, Android mobile app, and API access
+### 🧠 **11 Specialized AI Agents**
+- **Executor Agent**: Task execution and coordination
+- **Planning Agent**: Strategic planning and workflow design
+- **Knowledge Agent**: Information retrieval and synthesis
+- **Content Creator**: Text, articles, and creative writing
+- **Visual Designer**: Image generation and visual content
+- **Code Developer**: Software development and debugging
+- **Data Analyst**: Data processing and insights
+- **Research Specialist**: Web research and analysis
+- **Communication Expert**: Email and social media content
+- **Presentation Specialist**: Slides and presentation creation
+- **Automation Expert**: Web automation and task automation
 
-### Specialized Agents
-- **Planning Agent**: Strategic planning and workflow optimization
-- **Knowledge Agent**: Research, information retrieval, and synthesis
-- **Content Generation Agent**: Text, images, videos, presentations
-- **Data Analysis Agent**: Statistical analysis and visualization
-- **Web Automation Agent**: Browser automation and data extraction
-- **Code Generation Agent**: Software development and debugging
+### 🎨 **Content Generation**
+- **Text Generation**: Articles, blogs, emails, social media posts
+- **Image Generation**: DALL-E 3 and Stability AI integration
+- **Presentation Creation**: AI-powered slide generation with themes
+- **Document Generation**: PDF, HTML, Markdown with custom styling
+- **Audio Processing**: Speech synthesis and transcription
+- **Infographic Creation**: Data-driven visual content
 
-### Use Cases
-- Business operations and workflow automation
-- Content creation (images, videos, presentations)
-- Research and data analysis
-- Website and application development
-- Document generation and processing
-- Educational content creation
+### 🌐 **Web Automation**
+- **Browser Control**: Selenium-based automation with Chrome/ChromeDriver
+- **AI-Powered Navigation**: GPT-4 analyzes pages and creates automation plans
+- **Form Filling**: Intelligent form completion and submission
+- **Data Extraction**: Web scraping with AI-guided selection
+- **Session Management**: Multiple concurrent browser sessions
+
+### ⚡ **Task Orchestration**
+- **Multi-Agent Coordination**: Intelligent task distribution
+- **Real-time Processing**: Async execution with progress tracking
+- **Dependency Management**: Smart step execution based on prerequisites
+- **Task Templates**: Predefined workflows for common use cases
+- **Priority Queue**: Task prioritization and resource management
+
+### 📱 **Multi-Platform Support**
+- **Web Application**: Professional React frontend
+- **Mobile App**: React Native for iOS/Android
+- **REST API**: Comprehensive backend with 50+ endpoints
+- **Real-time Updates**: Live progress monitoring and notifications
 
 ## 🏗️ Architecture
 
-### Technology Stack
-- **Backend**: Python Flask with microservices architecture
-- **Frontend**: React with TypeScript and Tailwind CSS
-- **Mobile**: React Native with Expo
-- **Database**: Supabase (PostgreSQL) with Redis caching
-- **AI Models**: OpenAI GPT-4, Anthropic Claude, Google Gemini
-- **Deployment**: AWS with Docker and Kubernetes
-
-### Project Structure
 ```
-manus-ai-clone/
-├── manus-backend/          # Flask backend API
-│   ├── src/
-│   │   ├── agents/         # AI agent implementations
-│   │   ├── models/         # Database models
-│   │   ├── routes/         # API endpoints
-│   │   ├── services/       # Business logic
-│   │   └── main.py         # Application entry point
-│   ├── requirements.txt    # Python dependencies
-│   └── .env               # Environment variables
-├── manus-frontend/         # React web application
-│   ├── src/
-│   │   ├── components/     # React components
-│   │   ├── pages/         # Application pages
-│   │   ├── hooks/         # Custom React hooks
-│   │   ├── lib/           # Utility functions
-│   │   └── App.jsx        # Main application
-│   ├── package.json       # Node.js dependencies
-│   └── .env              # Environment variables
-├── manus-mobile/          # React Native mobile app
-│   ├── src/
-│   │   ├── components/    # Mobile components
-│   │   ├── screens/       # Application screens
-│   │   └── navigation/    # Navigation setup
-│   ├── package.json       # Dependencies
-│   └── app.json          # Expo configuration
-└── docs/                  # Documentation
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Web Frontend  │    │   Mobile App    │    │   API Clients   │
+│     (React)     │    │ (React Native)  │    │   (External)    │
+└─────────┬───────┘    └─────────┬───────┘    └─────────┬───────┘
+          │                      │                      │
+          └──────────────────────┼──────────────────────┘
+                                 │
+                    ┌─────────────┴─────────────┐
+                    │      Backend API          │
+                    │    (Flask + Python)       │
+                    └─────────────┬─────────────┘
+                                  │
+          ┌───────────────────────┼───────────────────────┐
+          │                       │                       │
+    ┌─────┴─────┐         ┌───────┴───────┐       ┌───────┴───────┐
+    │    AI     │         │ Orchestration │       │   Computer    │
+    │ Services  │         │   Service     │       │   Service     │
+    └───────────┘         └───────────────┘       └───────────────┘
+          │                       │                       │
+    ┌─────┴─────┐         ┌───────┴───────┐       ┌───────┴───────┐
+    │  OpenAI   │         │  Task Queue   │       │   Selenium    │
+    │ Anthropic │         │  Multi-Agent  │       │ ChromeDriver  │
+    │Stability  │         │  Coordination │       │   Browser     │
+    │ElevenLabs │         └───────────────┘       │  Automation   │
+    │  Google   │                                 └───────────────┘
+    │Perplexity │
+    └───────────┘
 ```
 
-## 🛠️ Setup and Installation
+## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.11+
-- Node.js 18+
-- Git
-- Docker (optional)
+- **Node.js** 18+ and npm
+- **Python** 3.11+ and pip
+- **Chrome/Chromium** browser (for automation)
+- **Git** for version control
 
-### Backend Setup
+### 1. Clone the Repository
+```bash
+git clone https://github.com/neuralarc-ai/testM.git
+cd testM
+```
+
+### 2. Environment Setup
+```bash
+# Copy environment variables
+cp manus-backend/.env.example manus-backend/.env
+cp manus-frontend/.env.example manus-frontend/.env
+
+# Edit .env files with your API keys
+nano manus-backend/.env
+```
+
+### 3. One-Command Deployment
+```bash
+# Deploy everything automatically
+./deploy.sh
+
+# Or deploy components separately:
+./deploy.sh stop     # Stop all services
+./deploy.sh restart  # Restart all services
+./deploy.sh status   # Check service status
+./deploy.sh logs     # View logs
+```
+
+### 4. Manual Setup (Alternative)
+
+#### Backend Setup
 ```bash
 cd manus-backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 python src/main.py
 ```
 
-### Frontend Setup
+#### Frontend Setup
 ```bash
 cd manus-frontend
-pnpm install
-pnpm run dev
+npm install
+npm run dev
 ```
 
-### Mobile Setup
+#### Mobile App Setup
 ```bash
 cd manus-mobile
 npm install
-npm run android  # For Android
-npm run web      # For web preview
+npx expo start
 ```
+
+## 📋 API Documentation
+
+### Authentication Endpoints
+- `POST /api/auth/login` - User login
+- `POST /api/auth/register` - User registration
+- `GET /api/auth/profile` - Get user profile
+- `POST /api/auth/logout` - User logout
+
+### Task Management
+- `GET /api/tasks` - List user tasks
+- `POST /api/tasks` - Create new task
+- `GET /api/tasks/{id}` - Get task details
+- `PUT /api/tasks/{id}` - Update task
+- `DELETE /api/tasks/{id}` - Delete task
+- `POST /api/tasks/{id}/execute` - Execute task
+
+### AI Agents
+- `GET /api/agents` - List available agents
+- `GET /api/agents/{id}` - Get agent details
+- `GET /api/agents/recommendations` - Get agent recommendations
+- `POST /api/agents/{id}/execute` - Execute agent task
+
+### Content Generation
+- `POST /api/media/presentations` - Generate presentation
+- `POST /api/media/presentations/ai-generate` - AI-generated presentation
+- `POST /api/media/documents` - Generate document
+- `POST /api/media/documents/ai-generate` - AI-generated document
+- `POST /api/media/images/generate` - Generate image
+- `POST /api/media/audio/generate-speech` - Generate speech
+
+### Task Orchestration
+- `GET /api/orchestration/tasks/templates` - Get task templates
+- `POST /api/orchestration/tasks/create-from-template` - Create from template
+- `POST /api/orchestration/tasks/create-custom` - Create custom task
+- `GET /api/orchestration/tasks` - List orchestration tasks
+- `POST /api/orchestration/tasks/{id}/cancel` - Cancel task
+- `POST /api/orchestration/tasks/{id}/pause` - Pause task
+- `POST /api/orchestration/tasks/{id}/resume` - Resume task
+
+### Computer Automation
+- `POST /api/computer/sessions` - Create browser session
+- `GET /api/computer/sessions` - List sessions
+- `POST /api/computer/sessions/{id}/automate` - Automate task
+- `GET /api/computer/sessions/{id}/status` - Get session status
 
 ## 🔧 Configuration
 
 ### Environment Variables
-The project uses environment variables for configuration. Copy the provided `.env` files and update as needed:
 
-- `manus-backend/.env` - Backend API keys and database configuration
-- `manus-frontend/.env` - Frontend API endpoints and client keys
+#### Backend (.env)
+```env
+# AI Service API Keys
+OPENAI_API_KEY=your_openai_key
+ANTHROPIC_API_KEY=your_anthropic_key
+STABILITY_API_KEY=your_stability_key
+ELEVENLABS_API_KEY=your_elevenlabs_key
+GOOGLE_API_KEY=your_google_key
+PERPLEXITY_API_KEY=your_perplexity_key
 
-### API Keys Required
-- OpenAI API Key (GPT-4)
-- Anthropic API Key (Claude)
-- Google Cloud API Key (Gemini)
-- Supabase URL and Keys
-- Additional service APIs as needed
+# Database
+DATABASE_URL=sqlite:///manus.db
 
-## 🚀 Deployment
+# Security
+JWT_SECRET_KEY=your_jwt_secret
+FLASK_SECRET_KEY=your_flask_secret
 
-### AWS Deployment
-The application is designed for AWS deployment with:
-- ECS/EKS for container orchestration
-- RDS for database
-- S3 for file storage
-- CloudFront for CDN
-- Lambda for serverless functions
+# Server
+FLASK_ENV=production
+FLASK_DEBUG=False
+```
 
-### Docker Deployment
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
+#### Frontend (.env)
+```env
+VITE_API_BASE_URL=http://localhost:8000/api
+VITE_APP_NAME=Manus AI Clone
 ```
 
 ## 📱 Mobile App
 
-The Android application provides full feature parity with the web version:
-- Task submission and monitoring
-- Real-time notifications
-- Content viewing and sharing
-- Offline capabilities
-- Push notifications
+The React Native mobile app provides full access to all Manus AI features:
 
-## 🔒 Security
+### Features
+- **Cross-platform**: iOS and Android support
+- **Authentication**: Secure login and registration
+- **Task Management**: Create and monitor tasks
+- **Agent Interaction**: Access all AI agents
+- **Content Library**: View generated content
+- **Real-time Updates**: Live task progress
 
-- OAuth 2.0 authentication with multiple providers
-- JWT token-based authorization
-- Rate limiting and abuse prevention
-- Data encryption at rest and in transit
-- GDPR and privacy compliance
+### Development
+```bash
+cd manus-mobile
+npm install
+npx expo start
+
+# For iOS
+npx expo start --ios
+
+# For Android
+npx expo start --android
+```
+
+## 🧪 Testing
+
+### Backend Tests
+```bash
+cd manus-backend
+source venv/bin/activate
+python -m pytest tests/
+```
+
+### Frontend Tests
+```bash
+cd manus-frontend
+npm test
+```
+
+### API Testing
+```bash
+# Health check
+curl http://localhost:8000/health
+
+# API info
+curl http://localhost:8000/api
+
+# Test authentication
+curl -X POST http://localhost:8000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test User","email":"test@example.com","password":"password123"}'
+```
+
+## 🚀 Production Deployment
+
+### Docker Deployment
+```bash
+# Build and run with Docker Compose
+docker-compose up -d --build
+
+# Scale services
+docker-compose up -d --scale backend=3
+```
+
+### AWS Deployment
+```bash
+# Deploy backend to AWS Lambda
+cd manus-backend
+serverless deploy
+
+# Deploy frontend to AWS S3 + CloudFront
+cd manus-frontend
+npm run build
+aws s3 sync dist/ s3://your-bucket-name
+```
+
+### Systemd Services
+```bash
+# Create systemd services for production
+./deploy.sh systemd
+
+# Start services
+sudo systemctl start manus-backend
+sudo systemctl start manus-frontend
+```
 
 ## 📊 Monitoring
 
-- Application performance monitoring
-- Real-time error tracking
-- Usage analytics and metrics
-- Health checks and alerting
-- Distributed tracing
+### Health Checks
+- Backend: `http://localhost:8000/health`
+- Frontend: `http://localhost:3000`
+- API Status: `http://localhost:8000/api`
+
+### Logs
+```bash
+# View logs
+./deploy.sh logs
+
+# Real-time monitoring
+tail -f backend.log
+tail -f frontend.log
+```
+
+## 🔒 Security
+
+- **JWT Authentication**: Secure token-based authentication
+- **API Rate Limiting**: Protection against abuse
+- **Input Validation**: Comprehensive request validation
+- **CORS Configuration**: Secure cross-origin requests
+- **Environment Variables**: Secure API key management
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+## 🙏 Acknowledgments
+
+- **OpenAI** for GPT-4 and DALL-E 3
+- **Anthropic** for Claude AI
+- **Stability AI** for image generation
+- **ElevenLabs** for speech synthesis
+- **Google** for various AI services
+- **Perplexity** for web search capabilities
+
+## 📞 Support
 
 For support and questions:
-- Create an issue in the GitHub repository
-- Check the documentation in the `docs/` folder
-- Review the API documentation at `/api/docs`
-
-## 🔄 Development Status
-
-- [x] Project setup and architecture
-- [x] Backend API foundation
-- [x] Frontend React application
-- [x] Mobile React Native app
-- [ ] AI agent implementations
-- [ ] API integrations
-- [ ] Testing and optimization
-- [ ] Production deployment
-
-## 📈 Roadmap
-
-### Phase 1: Core Platform (Current)
-- Multi-agent system implementation
-- Basic UI and API endpoints
-- Authentication and user management
-
-### Phase 2: AI Integration
-- LLM API integrations
-- Content generation capabilities
-- Task orchestration engine
-
-### Phase 3: Advanced Features
-- Real-time collaboration
-- Advanced analytics
-- Enterprise features
-
-### Phase 4: Scale and Optimize
-- Performance optimization
-- Global deployment
-- Advanced monitoring
+- **Email**: support@neuralarc.ai
+- **Website**: https://neuralarc.ai
+- **Documentation**: [Full API Documentation](docs/api.md)
 
 ---
 
-Built with ❤️ to replicate the revolutionary capabilities of Manus AI
+**Built with ❤️ by Neural Arc Inc**
+
+*Manus AI Clone - The complete autonomous AI agent platform*
 
