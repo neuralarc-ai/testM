@@ -20,6 +20,7 @@ from src.routes.agents import agents_bp
 from src.routes.content import content_bp
 from src.routes.computer import computer_bp
 from src.routes.media import media_bp
+from src.routes.orchestration import orchestration_bp
 
 def create_app():
     app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
@@ -55,6 +56,7 @@ def create_app():
     app.register_blueprint(content_bp, url_prefix='/api/content')
     app.register_blueprint(computer_bp, url_prefix='/api/computer')
     app.register_blueprint(media_bp, url_prefix='/api/media')
+    app.register_blueprint(orchestration_bp, url_prefix='/api/orchestration')
     
     # Health check endpoint
     @app.route('/health')
@@ -79,13 +81,18 @@ def create_app():
                 'agents': '/api/agents',
                 'content': '/api/content',
                 'computer': '/api/computer',
-                'media': '/api/media'
+                'media': '/api/media',
+                'orchestration': '/api/orchestration'
             }
         })
     
     # Create database tables
     # with app.app_context():
     #     db.create_all()
+    
+    # Start the task orchestrator
+    from src.services.orchestration_service import orchestrator
+    orchestrator.start()
     
     # Serve frontend static files
     @app.route('/', defaults={'path': ''})
