@@ -18,6 +18,7 @@ from src.routes.auth import auth_bp
 from src.routes.tasks import tasks_bp
 from src.routes.agents import agents_bp
 from src.routes.content import content_bp
+from src.routes.computer import computer_bp
 
 def create_app():
     app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
@@ -51,6 +52,7 @@ def create_app():
     app.register_blueprint(tasks_bp, url_prefix='/api/tasks')
     app.register_blueprint(agents_bp, url_prefix='/api/agents')
     app.register_blueprint(content_bp, url_prefix='/api/content')
+    app.register_blueprint(computer_bp, url_prefix='/api/computer')
     
     # Health check endpoint
     @app.route('/health')
@@ -73,7 +75,8 @@ def create_app():
                 'users': '/api/users',
                 'tasks': '/api/tasks',
                 'agents': '/api/agents',
-                'content': '/api/content'
+                'content': '/api/content',
+                'computer': '/api/computer'
             }
         })
     
